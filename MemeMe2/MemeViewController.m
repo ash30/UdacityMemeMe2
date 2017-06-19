@@ -9,9 +9,9 @@
 #import "MemeViewController.h"
 #import "MemeView.h"
 
+
 @interface MemeViewController ()
 
-@property (nonatomic) MemeView * currentMeme;
 
 
 @end
@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    #pragma mark - MEME VIEW
+    
     self.currentMeme = [[MemeView alloc] init];
     self.currentMeme.translatesAutoresizingMaskIntoConstraints = false ;
     [self.view addSubview:self.currentMeme];
@@ -33,8 +35,20 @@
                                                [self.currentMeme.topAnchor constraintEqualToAnchor: self.topLayoutGuide.topAnchor],
                                                [self.currentMeme.bottomAnchor constraintEqualToAnchor: self.bottomLayoutGuide.bottomAnchor]
                                                ]];
+    
+# pragma mark - NAV BAR BUTTON
+    navBarButtonR.target = self;
+    navBarButtonR.action = @selector(showImagePicker);
+    
 }
 
+- (void) showImagePicker {
+    UIImagePickerController * vc = [[ UIImagePickerController alloc ] init];
+    if (vc) {
+        vc.delegate = self;
+        [self presentViewController:vc animated:true completion:nil];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -15,6 +15,7 @@
 		089334DE1EF6BC4F002CAD59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 089334DC1EF6BC4F002CAD59 /* LaunchScreen.storyboard */; };
 		089334E71EF71323002CAD59 /* MemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334E61EF71323002CAD59 /* MemeView.m */; };
 		089334EC1EF720F3002CAD59 /* MemeViewController+TextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334EB1EF720F3002CAD59 /* MemeViewController+TextFieldDelegate.m */; };
+		089334EE1EF86E1C002CAD59 /* MemeViewController+UIImagePickerControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334ED1EF86E1C002CAD59 /* MemeViewController+UIImagePickerControllerDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		089334E51EF71323002CAD59 /* MemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeView.h; sourceTree = "<group>"; };
 		089334E61EF71323002CAD59 /* MemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeView.m; sourceTree = "<group>"; };
 		089334EB1EF720F3002CAD59 /* MemeViewController+TextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MemeViewController+TextFieldDelegate.m"; sourceTree = "<group>"; };
+		089334ED1EF86E1C002CAD59 /* MemeViewController+UIImagePickerControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MemeViewController+UIImagePickerControllerDelegate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				089334D21EF6BC4F002CAD59 /* AppDelegate.m */,
 				089334D41EF6BC4F002CAD59 /* MemeViewController.h */,
 				089334D51EF6BC4F002CAD59 /* MemeViewController.m */,
+				089334ED1EF86E1C002CAD59 /* MemeViewController+UIImagePickerControllerDelegate.m */,
 				089334EB1EF720F3002CAD59 /* MemeViewController+TextFieldDelegate.m */,
 				089334E81EF7132A002CAD59 /* Views */,
 				089334D71EF6BC4F002CAD59 /* Main.storyboard */,
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				089334EC1EF720F3002CAD59 /* MemeViewController+TextFieldDelegate.m in Sources */,
+				089334EE1EF86E1C002CAD59 /* MemeViewController+UIImagePickerControllerDelegate.m in Sources */,
 				089334E71EF71323002CAD59 /* MemeView.m in Sources */,
 				089334D61EF6BC4F002CAD59 /* MemeViewController.m in Sources */,
 				089334D31EF6BC4F002CAD59 /* AppDelegate.m in Sources */,

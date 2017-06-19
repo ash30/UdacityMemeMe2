@@ -10,4 +10,6 @@
 
 @interface MemeView : UIView
 
+@property (nullable, nonatomic) UIImage * memeImage;
+
 @end

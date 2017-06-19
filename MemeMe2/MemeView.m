@@ -10,9 +10,23 @@
 
 @interface MemeView ()
 
+@property (nonatomic, nonnull) UIImageView * memeImageView;
+
 @end
 
 @implementation MemeView
+
+#pragma mark GET SET
+
+- (UIImage *) getMemeImage {
+    return self.memeImageView.image;
+}
+
+- (void) setMemeImage:(UIImage *)memeImage {
+    [self.memeImageView setImage:memeImage];
+}
+
+#pragma mark - INIT
 
 - (instancetype) init {
     self = [self initWithFrame:CGRectZero];
@@ -35,26 +49,26 @@
         footer.textAlignment = NSTextAlignmentCenter;
         footer.translatesAutoresizingMaskIntoConstraints = false;
 
-        UIImageView * image = [[UIImageView alloc] init];
-        image.translatesAutoresizingMaskIntoConstraints = false;
+        _memeImageView = [[UIImageView alloc] init];
+        _memeImageView.translatesAutoresizingMaskIntoConstraints = false;
         
         NSArray<NSLayoutConstraint *> * constraints = @[
-                                                        [header.topAnchor constraintEqualToAnchor: image.topAnchor],
-                                                        [header.widthAnchor constraintEqualToAnchor: image.widthAnchor],
-                                                        [header.centerXAnchor constraintEqualToAnchor: image.centerXAnchor],
+                                                        [header.topAnchor constraintEqualToAnchor: _memeImageView.topAnchor],
+                                                        [header.widthAnchor constraintEqualToAnchor: _memeImageView.widthAnchor],
+                                                        [header.centerXAnchor constraintEqualToAnchor: _memeImageView.centerXAnchor],
                                                         
-                                                        [footer.bottomAnchor constraintEqualToAnchor:image.bottomAnchor],
-                                                        [footer.widthAnchor constraintEqualToAnchor:image.widthAnchor],
-                                                        [footer.centerXAnchor constraintEqualToAnchor:image.centerXAnchor],
+                                                        [footer.bottomAnchor constraintEqualToAnchor:_memeImageView.bottomAnchor],
+                                                        [footer.widthAnchor constraintEqualToAnchor:_memeImageView.widthAnchor],
+                                                        [footer.centerXAnchor constraintEqualToAnchor:_memeImageView.centerXAnchor],
                                                         
-                                                        [image.leftAnchor constraintEqualToAnchor: self.layoutMarginsGuide.leftAnchor],
-                                                        [image.rightAnchor constraintEqualToAnchor: self.layoutMarginsGuide.rightAnchor],
-                                                        [image.topAnchor constraintEqualToAnchor: self.layoutMarginsGuide.topAnchor],
-                                                        [image.bottomAnchor constraintEqualToAnchor: self.layoutMarginsGuide.bottomAnchor]
+                                                        [_memeImageView.leftAnchor constraintEqualToAnchor: self.layoutMarginsGuide.leftAnchor],
+                                                        [_memeImageView.rightAnchor constraintEqualToAnchor: self.layoutMarginsGuide.rightAnchor],
+                                                        [_memeImageView.topAnchor constraintEqualToAnchor: self.layoutMarginsGuide.topAnchor],
+                                                        [_memeImageView.bottomAnchor constraintEqualToAnchor: self.layoutMarginsGuide.bottomAnchor]
                                                         
                                                         ];
         
-        [self addSubview:image];
+        [self addSubview:_memeImageView];
         [self addSubview:header];
         [self addSubview:footer];
         [NSLayoutConstraint activateConstraints:constraints];

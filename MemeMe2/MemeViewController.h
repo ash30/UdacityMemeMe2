@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MemeViewController : UIViewController <UITextFieldDelegate>
+@class MemeView;
 
+@interface MemeViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate,  UIImagePickerControllerDelegate>
 
+{
+    __weak IBOutlet UIBarButtonItem *navBarButtonR;
+}
+
+@property (nonatomic) MemeView * currentMeme;
+
+- (void) showImagePicker;
 
 
 @end
