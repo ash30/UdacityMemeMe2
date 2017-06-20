@@ -18,7 +18,7 @@
     
     if (image) {
         
-        [self.currentMeme setMemeImage:image];
+        [self.memeView setMemeImage:image];
         [self dismissViewControllerAnimated:true completion:nil];
         
     }

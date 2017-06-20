@@ -12,6 +12,7 @@
 
 @interface MemeViewController ()
 
+@property (readwrite) float memeAspectRatio;
 
 
 @end
@@ -22,21 +23,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+
     #pragma mark - MEME VIEW
     
-    self.currentMeme = [[MemeView alloc] init];
-    self.currentMeme.translatesAutoresizingMaskIntoConstraints = false ;
-    [self.view addSubview:self.currentMeme];
+    _memeView = [[MemeView alloc] init];
+    _memeView.translatesAutoresizingMaskIntoConstraints = false ;
+    [self.view addSubview:_memeView];
     
+    
+    _memeAspectRatio = 0.9;
+    // Maintain aspect ratio and fill shortest screen dimension
     [ NSLayoutConstraint activateConstraints:@[
-                                               [self.currentMeme.leftAnchor constraintEqualToAnchor: self.view.layoutMarginsGuide.leftAnchor],
-                                               [self.currentMeme.rightAnchor constraintEqualToAnchor: self.view.layoutMarginsGuide.rightAnchor],
-                                               [self.currentMeme.topAnchor constraintEqualToAnchor: self.topLayoutGuide.topAnchor],
-                                               [self.currentMeme.bottomAnchor constraintEqualToAnchor: self.bottomLayoutGuide.bottomAnchor]
+                                               [_memeView.widthAnchor constraintLessThanOrEqualToAnchor:self.view.heightAnchor multiplier:_memeAspectRatio],
+                                               [_memeView.heightAnchor constraintLessThanOrEqualToAnchor:self.view.widthAnchor multiplier: (1 / _memeAspectRatio)],
+
+                                               [_memeView.widthAnchor constraintLessThanOrEqualToAnchor:self.view.widthAnchor],
+                                               [_memeView.heightAnchor constraintLessThanOrEqualToAnchor:self.view.heightAnchor],
+
+                                               [_memeView.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor],
+                                               [_memeView.centerYAnchor constraintEqualToAnchor: self.view.centerYAnchor]
                                                ]];
     
-# pragma mark - NAV BAR BUTTON
+    # pragma mark - NAV BAR BUTTON
+
     navBarButtonR.target = self;
     navBarButtonR.action = @selector(showImagePicker);
     

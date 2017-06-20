@@ -51,6 +51,8 @@
 
         _memeImageView = [[UIImageView alloc] init];
         _memeImageView.translatesAutoresizingMaskIntoConstraints = false;
+        _memeImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _memeImageView.clipsToBounds = true;
         
         NSArray<NSLayoutConstraint *> * constraints = @[
                                                         [header.topAnchor constraintEqualToAnchor: _memeImageView.topAnchor],

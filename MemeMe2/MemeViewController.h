@@ -16,10 +16,10 @@
     __weak IBOutlet UIBarButtonItem *navBarButtonR;
 }
 
-@property (nonatomic) MemeView * currentMeme;
+@property (readonly) float memeAspectRatio;
+@property (nonatomic) MemeView * memeView;
 
 - (void) showImagePicker;
-
 
 @end
 
