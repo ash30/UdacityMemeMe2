@@ -10,39 +10,61 @@
 #import "MemeView.h"
 
 
+#pragma mark - CONSTANTS
+
+static const CGFloat kContentViewMargin = 16;
+
+
+#pragma mark - PRIVATE
+
 @interface MemeViewController ()
 
 @property (readwrite) float memeAspectRatio;
-
+@property (nonatomic) UIView * contentView;
 
 @end
 
+
+#pragma mark - VIEW CONTROLLER
+
 @implementation MemeViewController
+
 
 #pragma mark - LIFE CYCLE
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // CONTENT VIEW
+    _contentView = [[UIView alloc] init];
+    _contentView.translatesAutoresizingMaskIntoConstraints = false;
+    [self.view addSubview:_contentView];
+    
+    [NSLayoutConstraint activateConstraints:@[
+                                              [_contentView.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant:kContentViewMargin],
+                                              [_contentView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor constant:-kContentViewMargin],
+                                              [_contentView.topAnchor constraintEqualToAnchor: self.view.layoutMarginsGuide.topAnchor constant:kContentViewMargin],
+                                              [_contentView.bottomAnchor constraintEqualToAnchor: self.view.layoutMarginsGuide.bottomAnchor constant:-kContentViewMargin]
+                                              ]];
+    
 
-    #pragma mark - MEME VIEW
+    // MEME VIEW
     
     _memeView = [[MemeView alloc] init];
     _memeView.translatesAutoresizingMaskIntoConstraints = false ;
-    [self.view addSubview:_memeView];
-    
+    [self.contentView addSubview:_memeView];
     
     _memeAspectRatio = 0.9;
     // Maintain aspect ratio and fill shortest screen dimension
     [ NSLayoutConstraint activateConstraints:@[
-                                               [_memeView.widthAnchor constraintLessThanOrEqualToAnchor:self.view.heightAnchor multiplier:_memeAspectRatio],
-                                               [_memeView.heightAnchor constraintLessThanOrEqualToAnchor:self.view.widthAnchor multiplier: (1 / _memeAspectRatio)],
+                                               [_memeView.widthAnchor constraintLessThanOrEqualToAnchor: _contentView.heightAnchor multiplier:_memeAspectRatio],
+                                               [_memeView.heightAnchor constraintLessThanOrEqualToAnchor: _contentView.widthAnchor multiplier: (1 / _memeAspectRatio)],
 
-                                               [_memeView.widthAnchor constraintLessThanOrEqualToAnchor:self.view.widthAnchor],
-                                               [_memeView.heightAnchor constraintLessThanOrEqualToAnchor:self.view.heightAnchor],
+                                               [_memeView.widthAnchor constraintLessThanOrEqualToAnchor: _contentView.widthAnchor],
+                                               [_memeView.heightAnchor constraintLessThanOrEqualToAnchor: _contentView.heightAnchor],
 
-                                               [_memeView.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor],
-                                               [_memeView.centerYAnchor constraintEqualToAnchor: self.view.centerYAnchor]
+                                               [_memeView.centerXAnchor constraintEqualToAnchor: _contentView.centerXAnchor],
+                                               [_memeView.centerYAnchor constraintEqualToAnchor: _contentView.centerYAnchor]
                                                ]];
     
     # pragma mark - NAV BAR BUTTON
