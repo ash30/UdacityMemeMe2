@@ -16,9 +16,9 @@
     
     UIImage * image = info[UIImagePickerControllerOriginalImage];
     
-    if (image) {
-        
-        [self.memeView setMemeImage:image];
+    if (image) {        
+        self.memeView.memeImage = image;
+        self.memeView.hidden = false;
         [self dismissViewControllerAnimated:true completion:nil];
         
     }

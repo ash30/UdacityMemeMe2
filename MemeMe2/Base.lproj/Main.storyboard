@@ -39,12 +39,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="hyV-Hj-IVM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="icd-Dc-t7q"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="navBarButtonR" destination="icd-Dc-t7q" id="WIJ-x3-5Ar"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="hyV-Hj-IVM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

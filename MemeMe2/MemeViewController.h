@@ -12,10 +12,6 @@
 
 @interface MemeViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate,  UIImagePickerControllerDelegate>
 
-{
-    __weak IBOutlet UIBarButtonItem *navBarButtonR;
-}
-
 @property (readonly) float memeAspectRatio;
 @property (nonatomic) MemeView * memeView;
 

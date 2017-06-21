@@ -8,6 +8,7 @@
 
 #import "MemeViewController.h"
 #import "MemeView.h"
+#import "ImagePlaceHolder.h"
 
 
 #pragma mark - CONSTANTS
@@ -21,6 +22,11 @@ static const CGFloat kContentViewMargin = 16;
 
 @property (readwrite) float memeAspectRatio;
 @property (nonatomic) UIView * contentView;
+@property (nonatomic) UIView * placeholderView;
+@property (nonatomic) UITapGestureRecognizer * createGesture;
+@property (nonatomic) UITapGestureRecognizer * altCreateGesture;
+
+
 
 @end
 
@@ -34,10 +40,12 @@ static const CGFloat kContentViewMargin = 16;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _memeAspectRatio = 0.9;
 
     // CONTENT VIEW
-    _contentView = [[UIView alloc] init];
-    _contentView.translatesAutoresizingMaskIntoConstraints = false;
+    self.contentView = [[UIView alloc] init];
+    self.contentView.translatesAutoresizingMaskIntoConstraints = false;
     [self.view addSubview:_contentView];
     
     [NSLayoutConstraint activateConstraints:@[
@@ -47,14 +55,38 @@ static const CGFloat kContentViewMargin = 16;
                                               [_contentView.bottomAnchor constraintEqualToAnchor: self.view.layoutMarginsGuide.bottomAnchor constant:-kContentViewMargin]
                                               ]];
     
+    // PLACEHOLDER VIEW
+    
+    self.placeholderView = [[ImagePlaceHolder alloc] init];
+    self.placeholderView.translatesAutoresizingMaskIntoConstraints = false;
+    [_contentView addSubview:_placeholderView];
+    
+    [ NSLayoutConstraint activateConstraints:@[
+                                               [_placeholderView.widthAnchor constraintLessThanOrEqualToAnchor: _contentView.heightAnchor multiplier:_memeAspectRatio],
+                                               [_placeholderView.heightAnchor constraintLessThanOrEqualToAnchor: _contentView.widthAnchor multiplier: (1 / _memeAspectRatio)],
+                                               
+                                               [_placeholderView.widthAnchor constraintLessThanOrEqualToAnchor: _contentView.widthAnchor],
+                                               [_placeholderView.heightAnchor constraintLessThanOrEqualToAnchor: _contentView.heightAnchor],
+                                               
+                                               [_placeholderView.centerXAnchor constraintEqualToAnchor: _contentView.centerXAnchor],
+                                               [_placeholderView.centerYAnchor constraintEqualToAnchor: _contentView.centerYAnchor]
+                                               ]];
+    
+    // Without any instrinsic dimensions, we must set a low priority dimension constraint for view
+    NSLayoutConstraint * minWidth = [_placeholderView.widthAnchor constraintEqualToAnchor:_contentView.widthAnchor];
+    NSLayoutConstraint * minHeight = [_placeholderView.heightAnchor constraintEqualToAnchor:_contentView.heightAnchor];
+    minWidth.priority = 100;
+    minHeight.priority = 100;
+    [ NSLayoutConstraint activateConstraints:@[minWidth, minHeight]];
+
 
     // MEME VIEW
     
-    _memeView = [[MemeView alloc] init];
-    _memeView.translatesAutoresizingMaskIntoConstraints = false ;
-    [self.contentView addSubview:_memeView];
+    self.memeView = [[MemeView alloc] init];
+    self.memeView.translatesAutoresizingMaskIntoConstraints = false;
+    self.memeView.hidden = true;
+    [_contentView addSubview:_memeView];
     
-    _memeAspectRatio = 0.9;
     // Maintain aspect ratio and fill shortest screen dimension
     [ NSLayoutConstraint activateConstraints:@[
                                                [_memeView.widthAnchor constraintLessThanOrEqualToAnchor: _contentView.heightAnchor multiplier:_memeAspectRatio],
@@ -67,10 +99,17 @@ static const CGFloat kContentViewMargin = 16;
                                                [_memeView.centerYAnchor constraintEqualToAnchor: _contentView.centerYAnchor]
                                                ]];
     
-    # pragma mark - NAV BAR BUTTON
+    // GESTURES
+    
+    self.createGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showImagePicker)];
+    [_placeholderView addGestureRecognizer:_createGesture];
 
-    navBarButtonR.target = self;
-    navBarButtonR.action = @selector(showImagePicker);
+    self.altCreateGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showImagePicker)];
+    _altCreateGesture.numberOfTapsRequired = 2;
+    [_memeView addGestureRecognizer:_altCreateGesture];
+
+    
+
     
 }
 

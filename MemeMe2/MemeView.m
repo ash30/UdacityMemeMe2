@@ -40,12 +40,12 @@
         
         //UICollectionView * container = [
         UITextField * header = [[UITextField alloc] init];
-        header.text = @"TOP";
+        header.placeholder = @"Enter Heading Text";
         header.textAlignment = NSTextAlignmentCenter;
         header.translatesAutoresizingMaskIntoConstraints = false;
         
         UITextField * footer = [[UITextField alloc] init];
-        footer.text = @"BOTTOM";
+        footer.placeholder = @"Enter Footer Text";
         footer.textAlignment = NSTextAlignmentCenter;
         footer.translatesAutoresizingMaskIntoConstraints = false;
 
