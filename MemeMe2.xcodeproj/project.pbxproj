@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		082EB1FF1EFAFC0100F6C101 /* ImagePlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB1FE1EFAFC0100F6C101 /* ImagePlaceHolder.m */; };
+		082EB2101EFC6A2800F6C101 /* UITextField+MemeStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB20F1EFC6A2800F6C101 /* UITextField+MemeStyle.m */; };
+		082EB2151EFCF36700F6C101 /* Meme.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB2141EFCF36700F6C101 /* Meme.m */; };
+		082EB2191EFCF40900F6C101 /* MemeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB2181EFCF40900F6C101 /* MemeDataSource.m */; };
+		082EB21C1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB21B1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m */; };
+		082EB2211EFCFB8A00F6C101 /* MemeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB2201EFCFB8A00F6C101 /* MemeCollectionViewController.m */; };
 		089334D01EF6BC4F002CAD59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334CF1EF6BC4F002CAD59 /* main.m */; };
 		089334D31EF6BC4F002CAD59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334D21EF6BC4F002CAD59 /* AppDelegate.m */; };
 		089334D61EF6BC4F002CAD59 /* MemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334D51EF6BC4F002CAD59 /* MemeViewController.m */; };
@@ -22,6 +27,16 @@
 /* Begin PBXFileReference section */
 		082EB1FD1EFAFC0100F6C101 /* ImagePlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePlaceHolder.h; sourceTree = "<group>"; };
 		082EB1FE1EFAFC0100F6C101 /* ImagePlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePlaceHolder.m; sourceTree = "<group>"; };
+		082EB20E1EFC6A2800F6C101 /* UITextField+MemeStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+MemeStyle.h"; sourceTree = "<group>"; };
+		082EB20F1EFC6A2800F6C101 /* UITextField+MemeStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+MemeStyle.m"; sourceTree = "<group>"; };
+		082EB2131EFCF36700F6C101 /* Meme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meme.h; sourceTree = "<group>"; };
+		082EB2141EFCF36700F6C101 /* Meme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meme.m; sourceTree = "<group>"; };
+		082EB2171EFCF40900F6C101 /* MemeDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeDataSource.h; sourceTree = "<group>"; };
+		082EB2181EFCF40900F6C101 /* MemeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeDataSource.m; sourceTree = "<group>"; };
+		082EB21B1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MemeDataSource+UICollectionViewDataSource.m"; sourceTree = "<group>"; };
+		082EB21D1EFCFA5700F6C101 /* MemeDataSource+UICollectionViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MemeDataSource+UICollectionViewDataSource.h"; sourceTree = "<group>"; };
+		082EB21F1EFCFB8A00F6C101 /* MemeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeCollectionViewController.h; sourceTree = "<group>"; };
+		082EB2201EFCFB8A00F6C101 /* MemeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeCollectionViewController.m; sourceTree = "<group>"; };
 		089334CB1EF6BC4F002CAD59 /* MemeMe2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		089334CF1EF6BC4F002CAD59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		089334D11EF6BC4F002CAD59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -49,6 +64,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		082EB2111EFC6A5900F6C101 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				082EB20E1EFC6A2800F6C101 /* UITextField+MemeStyle.h */,
+				082EB20F1EFC6A2800F6C101 /* UITextField+MemeStyle.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		082EB2121EFCF32D00F6C101 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				082EB21E1EFCFB2F00F6C101 /* MemeView */,
+				082EB2221EFDB0A800F6C101 /* MemeCollectionView */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		082EB2161EFCF36E00F6C101 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				082EB2131EFCF36700F6C101 /* Meme.h */,
+				082EB2141EFCF36700F6C101 /* Meme.m */,
+				082EB2171EFCF40900F6C101 /* MemeDataSource.h */,
+				082EB2181EFCF40900F6C101 /* MemeDataSource.m */,
+				082EB21D1EFCFA5700F6C101 /* MemeDataSource+UICollectionViewDataSource.h */,
+				082EB21B1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		082EB21E1EFCFB2F00F6C101 /* MemeView */ = {
+			isa = PBXGroup;
+			children = (
+				089334D41EF6BC4F002CAD59 /* MemeViewController.h */,
+				089334D51EF6BC4F002CAD59 /* MemeViewController.m */,
+				089334ED1EF86E1C002CAD59 /* MemeViewController+UIImagePickerControllerDelegate.m */,
+				089334EB1EF720F3002CAD59 /* MemeViewController+TextFieldDelegate.m */,
+			);
+			name = MemeView;
+			sourceTree = "<group>";
+		};
+		082EB2221EFDB0A800F6C101 /* MemeCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				082EB21F1EFCFB8A00F6C101 /* MemeCollectionViewController.h */,
+				082EB2201EFCFB8A00F6C101 /* MemeCollectionViewController.m */,
+			);
+			name = MemeCollectionView;
+			sourceTree = "<group>";
+		};
 		089334C21EF6BC4F002CAD59 = {
 			isa = PBXGroup;
 			children = (
@@ -70,11 +136,9 @@
 			children = (
 				089334D11EF6BC4F002CAD59 /* AppDelegate.h */,
 				089334D21EF6BC4F002CAD59 /* AppDelegate.m */,
-				089334D41EF6BC4F002CAD59 /* MemeViewController.h */,
-				089334D51EF6BC4F002CAD59 /* MemeViewController.m */,
-				089334ED1EF86E1C002CAD59 /* MemeViewController+UIImagePickerControllerDelegate.m */,
-				089334EB1EF720F3002CAD59 /* MemeViewController+TextFieldDelegate.m */,
-				089334E81EF7132A002CAD59 /* Views */,
+				082EB2161EFCF36E00F6C101 /* Model */,
+				082EB2121EFCF32D00F6C101 /* ViewController */,
+				089334E81EF7132A002CAD59 /* View */,
 				089334D71EF6BC4F002CAD59 /* Main.storyboard */,
 				089334DA1EF6BC4F002CAD59 /* Assets.xcassets */,
 				089334DC1EF6BC4F002CAD59 /* LaunchScreen.storyboard */,
@@ -92,15 +156,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		089334E81EF7132A002CAD59 /* Views */ = {
+		089334E81EF7132A002CAD59 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				082EB2111EFC6A5900F6C101 /* Categories */,
 				089334E51EF71323002CAD59 /* MemeView.h */,
 				089334E61EF71323002CAD59 /* MemeView.m */,
 				082EB1FD1EFAFC0100F6C101 /* ImagePlaceHolder.h */,
 				082EB1FE1EFAFC0100F6C101 /* ImagePlaceHolder.m */,
 			);
-			name = Views;
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +242,13 @@
 			files = (
 				089334EC1EF720F3002CAD59 /* MemeViewController+TextFieldDelegate.m in Sources */,
 				089334EE1EF86E1C002CAD59 /* MemeViewController+UIImagePickerControllerDelegate.m in Sources */,
+				082EB21C1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m in Sources */,
+				082EB2151EFCF36700F6C101 /* Meme.m in Sources */,
 				089334E71EF71323002CAD59 /* MemeView.m in Sources */,
+				082EB2191EFCF40900F6C101 /* MemeDataSource.m in Sources */,
+				082EB2101EFC6A2800F6C101 /* UITextField+MemeStyle.m in Sources */,
 				082EB1FF1EFAFC0100F6C101 /* ImagePlaceHolder.m in Sources */,
+				082EB2211EFCFB8A00F6C101 /* MemeCollectionViewController.m in Sources */,
 				089334D61EF6BC4F002CAD59 /* MemeViewController.m in Sources */,
 				089334D31EF6BC4F002CAD59 /* AppDelegate.m in Sources */,
 				089334D01EF6BC4F002CAD59 /* main.m in Sources */,
