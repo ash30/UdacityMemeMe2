@@ -11,5 +11,6 @@
 @interface MemeView : UIView
 
 @property (nullable, nonatomic) UIImage * memeImage;
+@property (nullable, nonatomic) id<UITextFieldDelegate> textDelegate;
 
 @end

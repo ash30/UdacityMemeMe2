@@ -8,15 +8,21 @@
 
 #import "MemeView.h"
 
+#pragma mark - PRIVATE
+
 @interface MemeView ()
 
 @property (nonatomic, nonnull) UIImageView * memeImageView;
+@property (nonatomic, nonnull) UITextField * header;
+@property (nonatomic, nonnull) UITextField * footer;
 
 @end
 
+#pragma mark - VIEW
+
 @implementation MemeView
 
-#pragma mark GET SET
+#pragma mark - ACCESSORS
 
 - (UIImage *) getMemeImage {
     return self.memeImageView.image;
@@ -24,6 +30,15 @@
 
 - (void) setMemeImage:(UIImage *)memeImage {
     [self.memeImageView setImage:memeImage];
+}
+
+- (id<UITextFieldDelegate>)getTextDelegate{
+    return _header.delegate;
+}
+
+- (void)setTextDelegate:(id<UITextFieldDelegate>)textDelegate {
+    _header.delegate = textDelegate;
+    _footer.delegate = textDelegate;
 }
 
 #pragma mark - INIT
@@ -38,30 +53,29 @@
     
     if (self){
         
-        //UICollectionView * container = [
-        UITextField * header = [[UITextField alloc] init];
-        header.placeholder = @"Enter Heading Text";
-        header.textAlignment = NSTextAlignmentCenter;
-        header.translatesAutoresizingMaskIntoConstraints = false;
+        self.header = [[UITextField alloc] init];
+        _header.placeholder = @"Enter Heading Text";
+        _header.textAlignment = NSTextAlignmentCenter;
+        _header.translatesAutoresizingMaskIntoConstraints = false;
         
-        UITextField * footer = [[UITextField alloc] init];
-        footer.placeholder = @"Enter Footer Text";
-        footer.textAlignment = NSTextAlignmentCenter;
-        footer.translatesAutoresizingMaskIntoConstraints = false;
+        self.footer = [[UITextField alloc] init];
+        _footer.placeholder = @"Enter Footer Text";
+        _footer.textAlignment = NSTextAlignmentCenter;
+        _footer.translatesAutoresizingMaskIntoConstraints = false;
 
-        _memeImageView = [[UIImageView alloc] init];
+        self.memeImageView = [[UIImageView alloc] init];
         _memeImageView.translatesAutoresizingMaskIntoConstraints = false;
         _memeImageView.contentMode = UIViewContentModeScaleAspectFill;
         _memeImageView.clipsToBounds = true;
         
         NSArray<NSLayoutConstraint *> * constraints = @[
-                                                        [header.topAnchor constraintEqualToAnchor: _memeImageView.topAnchor],
-                                                        [header.widthAnchor constraintEqualToAnchor: _memeImageView.widthAnchor],
-                                                        [header.centerXAnchor constraintEqualToAnchor: _memeImageView.centerXAnchor],
+                                                        [_header.topAnchor constraintEqualToAnchor: _memeImageView.topAnchor],
+                                                        [_header.widthAnchor constraintEqualToAnchor: _memeImageView.widthAnchor],
+                                                        [_header.centerXAnchor constraintEqualToAnchor: _memeImageView.centerXAnchor],
                                                         
-                                                        [footer.bottomAnchor constraintEqualToAnchor:_memeImageView.bottomAnchor],
-                                                        [footer.widthAnchor constraintEqualToAnchor:_memeImageView.widthAnchor],
-                                                        [footer.centerXAnchor constraintEqualToAnchor:_memeImageView.centerXAnchor],
+                                                        [_footer.bottomAnchor constraintEqualToAnchor:_memeImageView.bottomAnchor],
+                                                        [_footer.widthAnchor constraintEqualToAnchor:_memeImageView.widthAnchor],
+                                                        [_footer.centerXAnchor constraintEqualToAnchor:_memeImageView.centerXAnchor],
                                                         
                                                         [_memeImageView.leftAnchor constraintEqualToAnchor: self.layoutMarginsGuide.leftAnchor],
                                                         [_memeImageView.rightAnchor constraintEqualToAnchor: self.layoutMarginsGuide.rightAnchor],
@@ -71,12 +85,14 @@
                                                         ];
         
         [self addSubview:_memeImageView];
-        [self addSubview:header];
-        [self addSubview:footer];
+        [self addSubview:_header];
+        [self addSubview:_footer];
         [NSLayoutConstraint activateConstraints:constraints];
         
     }
     return self;
 }
+
+
 
 @end
