@@ -5,7 +5,8 @@
 //  Created by Ashley Arthur on 18/06/2017.
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
-
+#import "MemeDataSource.h"
+#import "Meme.h"
 #import "MemeViewController.h"
 #import "MemeView.h"
 #import "ImagePlaceHolder.h"
@@ -45,7 +46,7 @@ static const CGFloat kContentViewMargin = 16;
 
     // CONTENT VIEW
     self.contentView = [[UIView alloc] init];
-    self.contentView.translatesAutoresizingMaskIntoConstraints = false;
+    _contentView.translatesAutoresizingMaskIntoConstraints = false;
     [self.view addSubview:_contentView];
     
     [NSLayoutConstraint activateConstraints:@[
@@ -58,7 +59,7 @@ static const CGFloat kContentViewMargin = 16;
     // PLACEHOLDER VIEW
     
     self.placeholderView = [[ImagePlaceHolder alloc] init];
-    self.placeholderView.translatesAutoresizingMaskIntoConstraints = false;
+    _placeholderView.translatesAutoresizingMaskIntoConstraints = false;
     [_contentView addSubview:_placeholderView];
     
     [ NSLayoutConstraint activateConstraints:@[
@@ -83,8 +84,9 @@ static const CGFloat kContentViewMargin = 16;
     // MEME VIEW
     
     self.memeView = [[MemeView alloc] init];
-    self.memeView.translatesAutoresizingMaskIntoConstraints = false;
-    self.memeView.hidden = true;
+    _memeView.translatesAutoresizingMaskIntoConstraints = false;
+    _memeView.hidden = true;
+    _memeView.textDelegate = self;
     [_contentView addSubview:_memeView];
     
     // Maintain aspect ratio and fill shortest screen dimension
@@ -107,11 +109,24 @@ static const CGFloat kContentViewMargin = 16;
     self.altCreateGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showImagePicker)];
     _altCreateGesture.numberOfTapsRequired = 2;
     [_memeView addGestureRecognizer:_altCreateGesture];
-
-    
-
     
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    // Only save if user has started creating a meme
+    if ([_memeView memeImage]){
+       
+        NSString * header = @"";
+        NSString * footer = @"";
+        Meme * meme = [[Meme alloc] initWithImage:_memeView.memeImage header:header footer:footer];
+        
+        [_dataSource addNewMeme:meme];
+    }
+}
+
+
+#pragma mark - PICKER
 
 - (void) showImagePicker {
     UIImagePickerController * vc = [[ UIImagePickerController alloc ] init];
@@ -120,11 +135,5 @@ static const CGFloat kContentViewMargin = 16;
         [self presentViewController:vc animated:true completion:nil];
     }
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

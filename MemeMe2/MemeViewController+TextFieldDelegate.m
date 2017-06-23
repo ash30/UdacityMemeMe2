@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "MemeViewController.h"
+#import "UITextField+MemeStyle.h"
 
 @implementation MemeViewController (textFieldDelegate)
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    [UITextField styleMemeTextField:textField];
+    return true;
 }
 
 @end

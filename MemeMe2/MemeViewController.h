@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class MemeView;
+@class MemeDataSource;
 
 @interface MemeViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate,  UIImagePickerControllerDelegate>
 
 @property (readonly) float memeAspectRatio;
 @property (nonatomic) MemeView * memeView;
+@property (nonatomic) MemeDataSource * dataSource;
 
 - (void) showImagePicker;
 
