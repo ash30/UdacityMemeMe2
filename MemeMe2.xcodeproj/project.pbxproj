@@ -13,6 +13,8 @@
 		082EB2191EFCF40900F6C101 /* MemeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB2181EFCF40900F6C101 /* MemeDataSource.m */; };
 		082EB21C1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB21B1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m */; };
 		082EB2211EFCFB8A00F6C101 /* MemeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB2201EFCFB8A00F6C101 /* MemeCollectionViewController.m */; };
+		082EB22E1EFEF47600F6C101 /* MutableMeme.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB22D1EFEF47600F6C101 /* MutableMeme.m */; };
+		082EB2341EFFB5F900F6C101 /* GeneralMemeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB2331EFFB5F900F6C101 /* GeneralMemeCollectionViewCell.m */; };
 		089334D01EF6BC4F002CAD59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334CF1EF6BC4F002CAD59 /* main.m */; };
 		089334D31EF6BC4F002CAD59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334D21EF6BC4F002CAD59 /* AppDelegate.m */; };
 		089334D61EF6BC4F002CAD59 /* MemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334D51EF6BC4F002CAD59 /* MemeViewController.m */; };
@@ -37,6 +39,11 @@
 		082EB21D1EFCFA5700F6C101 /* MemeDataSource+UICollectionViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MemeDataSource+UICollectionViewDataSource.h"; sourceTree = "<group>"; };
 		082EB21F1EFCFB8A00F6C101 /* MemeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeCollectionViewController.h; sourceTree = "<group>"; };
 		082EB2201EFCFB8A00F6C101 /* MemeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeCollectionViewController.m; sourceTree = "<group>"; };
+		082EB2241EFDC57300F6C101 /* MemeDataSourceObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeDataSourceObserver.h; sourceTree = "<group>"; };
+		082EB22C1EFEF47600F6C101 /* MutableMeme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableMeme.h; sourceTree = "<group>"; };
+		082EB22D1EFEF47600F6C101 /* MutableMeme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableMeme.m; sourceTree = "<group>"; };
+		082EB2321EFFB5F900F6C101 /* GeneralMemeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralMemeCollectionViewCell.h; sourceTree = "<group>"; };
+		082EB2331EFFB5F900F6C101 /* GeneralMemeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralMemeCollectionViewCell.m; sourceTree = "<group>"; };
 		089334CB1EF6BC4F002CAD59 /* MemeMe2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		089334CF1EF6BC4F002CAD59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		089334D11EF6BC4F002CAD59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,10 +94,9 @@
 			children = (
 				082EB2131EFCF36700F6C101 /* Meme.h */,
 				082EB2141EFCF36700F6C101 /* Meme.m */,
-				082EB2171EFCF40900F6C101 /* MemeDataSource.h */,
-				082EB2181EFCF40900F6C101 /* MemeDataSource.m */,
-				082EB21D1EFCFA5700F6C101 /* MemeDataSource+UICollectionViewDataSource.h */,
-				082EB21B1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m */,
+				082EB22C1EFEF47600F6C101 /* MutableMeme.h */,
+				082EB22D1EFEF47600F6C101 /* MutableMeme.m */,
+				082EB2231EFDC55500F6C101 /* MemeDataSource */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -113,6 +119,18 @@
 				082EB2201EFCFB8A00F6C101 /* MemeCollectionViewController.m */,
 			);
 			name = MemeCollectionView;
+			sourceTree = "<group>";
+		};
+		082EB2231EFDC55500F6C101 /* MemeDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				082EB2241EFDC57300F6C101 /* MemeDataSourceObserver.h */,
+				082EB2171EFCF40900F6C101 /* MemeDataSource.h */,
+				082EB2181EFCF40900F6C101 /* MemeDataSource.m */,
+				082EB21D1EFCFA5700F6C101 /* MemeDataSource+UICollectionViewDataSource.h */,
+				082EB21B1EFCF4A800F6C101 /* MemeDataSource+UICollectionViewDataSource.m */,
+			);
+			name = MemeDataSource;
 			sourceTree = "<group>";
 		};
 		089334C21EF6BC4F002CAD59 = {
@@ -164,6 +182,8 @@
 				089334E61EF71323002CAD59 /* MemeView.m */,
 				082EB1FD1EFAFC0100F6C101 /* ImagePlaceHolder.h */,
 				082EB1FE1EFAFC0100F6C101 /* ImagePlaceHolder.m */,
+				082EB2321EFFB5F900F6C101 /* GeneralMemeCollectionViewCell.h */,
+				082EB2331EFFB5F900F6C101 /* GeneralMemeCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -251,6 +271,8 @@
 				082EB2211EFCFB8A00F6C101 /* MemeCollectionViewController.m in Sources */,
 				089334D61EF6BC4F002CAD59 /* MemeViewController.m in Sources */,
 				089334D31EF6BC4F002CAD59 /* AppDelegate.m in Sources */,
+				082EB2341EFFB5F900F6C101 /* GeneralMemeCollectionViewCell.m in Sources */,
+				082EB22E1EFEF47600F6C101 /* MutableMeme.m in Sources */,
 				089334D01EF6BC4F002CAD59 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
