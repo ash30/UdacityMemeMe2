@@ -9,15 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-
 @interface Meme : NSObject
 
-@property (nonnull, nonatomic, readonly) UIImage * image;
-@property (nonnull, nonatomic, readonly, copy) NSString * header;
-@property (nonnull, nonatomic, readonly, copy) NSString * footer;
 @property (nonnull, nonatomic, readonly) NSUUID * memeId;
+@property (nullable, nonatomic, readonly) UIImage * image;
+@property (nullable, nonatomic, readonly, copy) NSString * header;
+@property (nullable, nonatomic, readonly, copy) NSString * footer;
 
-- (instancetype)initWithImage:(UIImage *)image header:(NSString *)header footer:(NSString *)footer;
+- (nonnull instancetype)initWithImage:( UIImage * _Nullable )image header:(NSString * _Nullable)header footer:(NSString * _Nullable)footer;
 
 
 @end
