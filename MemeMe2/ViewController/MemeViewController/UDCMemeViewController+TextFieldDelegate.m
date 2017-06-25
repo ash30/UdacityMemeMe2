@@ -9,15 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "UDCMemeViewController.h"
 #import "UITextField+MemeStyle.h"
+#import "UDCVerticalTextView.h"
+
 
 @implementation UDCMemeViewController (textFieldDelegate)
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    
+- (void)textViewDidChange:(UITextView *)textView {
+    // Small hack, call the setter so custom subclass with override can vertically align
+    textView.text = textView.text;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    [UITextField styleMemeTextField:textField];
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    
+    NSDictionary * const style = @{
+                                   NSStrokeColorAttributeName: [UIColor blackColor],
+                                   NSForegroundColorAttributeName: [UIColor whiteColor],
+                                   NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:40.0],
+                                   NSStrokeWidthAttributeName: [NSNumber numberWithFloat:-2.0]
+                                   };
+    textView.typingAttributes = style;
+    textView.textAlignment = NSTextAlignmentCenter;
+
     return true;
 }
 

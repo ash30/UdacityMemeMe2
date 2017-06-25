@@ -11,7 +11,7 @@
 @interface UDCMemeView : UIView
 
 @property (nullable, nonatomic) UIImage * memeImage;
-@property (nullable, nonatomic) id<UITextFieldDelegate> textDelegate;
+@property (nullable, nonatomic) id<UITextViewDelegate> textDelegate;
 
 
 @end

@@ -7,14 +7,15 @@
 //
 
 #import "UDCMemeView.h"
+#import "UDCVerticalTextView.h"
 
 #pragma mark - PRIVATE
 
 @interface UDCMemeView ()
 
 @property (nonatomic, nonnull) UIImageView * memeImageView;
-@property (nonatomic, nonnull) UITextField * header;
-@property (nonatomic, nonnull) UITextField * footer;
+@property (nonatomic, nonnull) UITextView * header;
+@property (nonatomic, nonnull) UDCVerticalTextView * footer;
 
 @end
 
@@ -32,11 +33,11 @@
     [self.memeImageView setImage:memeImage];
 }
 
-- (id<UITextFieldDelegate>)getTextDelegate{
+- (id<UITextViewDelegate>)getTextDelegate{
     return _header.delegate;
 }
 
-- (void)setTextDelegate:(id<UITextFieldDelegate>)textDelegate {
+- (void)setTextDelegate:(id<UITextViewDelegate>)textDelegate {
     _header.delegate = textDelegate;
     _footer.delegate = textDelegate;
 }
@@ -53,13 +54,13 @@
     
     if (self){
         
-        self.header = [[UITextField alloc] init];
-        _header.placeholder = @"Enter Heading Text";
+        self.header = [[UITextView alloc] init];
+        _header.backgroundColor = nil;
         _header.textAlignment = NSTextAlignmentCenter;
         _header.translatesAutoresizingMaskIntoConstraints = false;
         
-        self.footer = [[UITextField alloc] init];
-        _footer.placeholder = @"Enter Footer Text";
+        self.footer = [[UDCVerticalTextView alloc] init];
+        _footer.backgroundColor = nil;
         _footer.textAlignment = NSTextAlignmentCenter;
         _footer.translatesAutoresizingMaskIntoConstraints = false;
 
@@ -72,10 +73,13 @@
                                                         [_header.topAnchor constraintEqualToAnchor: _memeImageView.topAnchor],
                                                         [_header.widthAnchor constraintEqualToAnchor: _memeImageView.widthAnchor],
                                                         [_header.centerXAnchor constraintEqualToAnchor: _memeImageView.centerXAnchor],
+                                                        [_header.heightAnchor constraintEqualToAnchor:_memeImageView.heightAnchor multiplier:0.5],
+
                                                         
                                                         [_footer.bottomAnchor constraintEqualToAnchor:_memeImageView.bottomAnchor],
                                                         [_footer.widthAnchor constraintEqualToAnchor:_memeImageView.widthAnchor],
                                                         [_footer.centerXAnchor constraintEqualToAnchor:_memeImageView.centerXAnchor],
+                                                        [_footer.heightAnchor constraintEqualToAnchor:_memeImageView.heightAnchor multiplier:0.5],
                                                         
                                                         [_memeImageView.leftAnchor constraintEqualToAnchor: self.layoutMarginsGuide.leftAnchor],
                                                         [_memeImageView.rightAnchor constraintEqualToAnchor: self.layoutMarginsGuide.rightAnchor],

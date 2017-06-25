@@ -11,7 +11,7 @@
 @class UDCMemeView;
 @class UDCMemeDataSource;
 
-@interface UDCMemeViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate,  UIImagePickerControllerDelegate>
+@interface UDCMemeViewController : UIViewController <UITextViewDelegate, UINavigationControllerDelegate,  UIImagePickerControllerDelegate>
 
 // Model
 @property (nonatomic) NSUUID * currentMemeId;
