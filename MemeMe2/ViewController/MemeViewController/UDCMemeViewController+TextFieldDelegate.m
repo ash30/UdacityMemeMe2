@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "UDCMemeViewController.h"
-#import "UITextField+MemeStyle.h"
 #import "UDCVerticalTextView.h"
 
 

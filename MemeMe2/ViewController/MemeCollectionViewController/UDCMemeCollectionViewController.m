@@ -24,6 +24,7 @@ static NSString * const kHeadingText = @"Memes";
 
 @interface UDCMemeCollectionViewController () <UDCMemeDataSourceObserver, UICollectionViewDelegate>
 @property (nonatomic) UDCMemeDataSource * dataSource;
+@property (nonatomic) NSUInteger pendingUpdates;
 
 @end
 
@@ -87,12 +88,30 @@ static NSString * const kHeadingText = @"Memes";
     [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
     
     [_layout invalidateLayout];
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (_pendingUpdates > 0) {
+        
+        NSMutableArray<NSIndexPath *> * indexes = [[NSMutableArray alloc] init];
+        for (NSUInteger i=0;i< _pendingUpdates;i++){
+            [indexes addObject:[NSIndexPath indexPathForItem:i inSection:0]];
+        }
+        
+        [_memeCollection performBatchUpdates:^{
+            [_memeCollection insertItemsAtIndexPaths:indexes];
+        } completion:^(BOOL finished) {
+            [_memeCollection reloadData];
+            self.pendingUpdates = 0;
+        }];
+    }
 }
 
 #pragma mark - NAVIGATION
@@ -111,7 +130,10 @@ static NSString * const kHeadingText = @"Memes";
 #pragma mark - DATA SOURCE OBSERVER
 
 - (void)memeDataSourceDidChange:(UDCMemeDataSource *)dataSource change:(MemeDataSourceObserverChange)change {
-    [_memeCollection reloadData];
+    
+    if (change == MemeDataSourceObserverChangeMemeAdded){
+        self.pendingUpdates += 1;
+    }
 }
 
 @end
