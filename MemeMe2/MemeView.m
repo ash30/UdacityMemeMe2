@@ -24,7 +24,7 @@
 
 #pragma mark - ACCESSORS
 
-- (UIImage *) getMemeImage {
+- (UIImage *) memeImage {
     return self.memeImageView.image;
 }
 
