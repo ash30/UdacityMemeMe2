@@ -6,23 +6,23 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "MemeDataSource+UICollectionViewDataSource.h"
-#import "MemeDataSource.h"
-#import "GeneralMemeCollectionViewCell.h"
-#import "Meme.h"
+#import "UDCMemeDataSource+UICollectionViewDataSource.h"
+#import "UDCMemeDataSource.h"
+#import "UDCGeneralMemeCollectionViewCell.h"
+#import "UDCMeme.h"
 
 static NSString * const memeCellReuseIdent = @"MEMECELL";
 
-@implementation MemeDataSource (UICollectionViewDataSource)
+@implementation UDCMemeDataSource (UICollectionViewDataSource)
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    GeneralMemeCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:memeCellReuseIdent forIndexPath:indexPath];
+    UDCGeneralMemeCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:memeCellReuseIdent forIndexPath:indexPath];
     
     if (!(indexPath.item < self.count)){
         return cell;
     }
-    Meme * data = [self.elements objectAtIndex:indexPath.item];
+    UDCMeme * data = [self.elements objectAtIndex:indexPath.item];
     cell.imageView.image = data.image;
     return cell;
 }

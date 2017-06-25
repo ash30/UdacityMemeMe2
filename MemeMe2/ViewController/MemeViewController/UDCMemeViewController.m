@@ -5,11 +5,11 @@
 //  Created by Ashley Arthur on 18/06/2017.
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
-#import "MemeDataSource.h"
-#import "Meme.h"
-#import "MemeViewController.h"
-#import "MemeView.h"
-#import "ImagePlaceHolder.h"
+#import "UDCMemeDataSource.h"
+#import "UDCMeme.h"
+#import "UDCMemeViewController.h"
+#import "UDCMemeView.h"
+#import "UDCImagePlaceHolder.h"
 
 
 #pragma mark - CONSTANTS
@@ -19,7 +19,7 @@ static const CGFloat kContentViewMargin = 16;
 
 #pragma mark - PRIVATE
 
-@interface MemeViewController ()
+@interface UDCMemeViewController ()
 
 @property (readwrite) float memeAspectRatio;
 @property (nonatomic) UIView * contentView;
@@ -34,7 +34,7 @@ static const CGFloat kContentViewMargin = 16;
 
 #pragma mark - VIEW CONTROLLER
 
-@implementation MemeViewController
+@implementation UDCMemeViewController
 
 
 #pragma mark - LIFE CYCLE
@@ -58,7 +58,7 @@ static const CGFloat kContentViewMargin = 16;
     
     // PLACEHOLDER VIEW
     
-    self.placeholderView = [[ImagePlaceHolder alloc] init];
+    self.placeholderView = [[UDCImagePlaceHolder alloc] init];
     _placeholderView.translatesAutoresizingMaskIntoConstraints = false;
     [_contentView addSubview:_placeholderView];
     
@@ -83,7 +83,7 @@ static const CGFloat kContentViewMargin = 16;
 
     // MEME VIEW
     
-    self.memeView = [[MemeView alloc] init];
+    self.memeView = [[UDCMemeView alloc] init];
     _memeView.translatesAutoresizingMaskIntoConstraints = false;
     _memeView.hidden = true;
     _memeView.textDelegate = self;

@@ -8,20 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class MemeView;
-@class MemeDataSource;
+@class UDCMemeView;
+@class UDCMemeDataSource;
 
-@interface MemeViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate,  UIImagePickerControllerDelegate>
+@interface UDCMemeViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate,  UIImagePickerControllerDelegate>
 
 // Model
 @property (nonatomic) NSUUID * currentMemeId;
-@property (nonatomic) MemeDataSource * dataSource;
+@property (nonatomic) UDCMemeDataSource * dataSource;
 
 // View Config
 @property (readonly) float memeAspectRatio;
 
 // Views
-@property (nonatomic) MemeView * memeView;
+@property (nonatomic) UDCMemeView * memeView;
 
 - (void) showImagePicker;
 

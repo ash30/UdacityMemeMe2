@@ -8,15 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "Meme.h"
+#import "UDCMeme.h"
 
 
-@interface MutableMeme : Meme
+@interface UDCMutableMeme : UDCMeme
 
 @property (nullable, nonatomic) UIImage * image;
 @property (nullable, nonatomic, copy) NSString * header;
 @property (nullable, nonatomic, copy) NSString * footer;
-
 
 
 @end

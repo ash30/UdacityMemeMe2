@@ -6,8 +6,8 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "MemeDataSource.h"
+#import "UDCMemeDataSource.h"
 #import <UIKit/UIKit.h>
 
-@interface MemeDataSource (UICollectionViewDataSource) <UICollectionViewDataSource>
+@interface UDCMemeDataSource (UICollectionViewDataSource) <UICollectionViewDataSource>
 @end

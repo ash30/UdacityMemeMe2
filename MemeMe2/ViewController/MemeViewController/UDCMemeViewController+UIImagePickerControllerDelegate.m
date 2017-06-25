@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MemeViewController.h"
-#import "MemeView.h"
-#import "MemeDataSource.h"
-#import "MutableMeme.h"
+#import "UDCMemeViewController.h"
+#import "UDCMemeView.h"
+#import "UDCMemeDataSource.h"
+#import "UDCMutableMeme.h"
 
-@implementation MemeViewController (UIImagePickerControllerDelegate)
+@implementation UDCMemeViewController (UIImagePickerControllerDelegate)
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
@@ -21,7 +21,7 @@
     if (image && self.dataSource && self.currentMemeId) {
         
         // Update Model and View
-        [self.dataSource editExistingMemeWithID:self.currentMemeId usingBlock:^(MutableMeme * meme) {
+        [self.dataSource editExistingMemeWithID:self.currentMemeId usingBlock:^(UDCMutableMeme * meme) {
             meme.image = image;
             self.memeView.memeImage = meme.image;
 

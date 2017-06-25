@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImagePlaceHolder : UIView
+@interface UDCImagePlaceHolder : UIView
 
 @end

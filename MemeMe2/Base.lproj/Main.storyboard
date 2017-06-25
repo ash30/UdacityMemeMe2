@@ -28,7 +28,7 @@
         <!--Meme Collection View Controller-->
         <scene sceneID="8h8-y0-qUB">
             <objects>
-                <viewController id="EkV-y0-NFl" customClass="MemeCollectionViewController" sceneMemberID="viewController">
+                <viewController id="EkV-y0-NFl" customClass="UDCMemeCollectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fz3-nR-Pv8"/>
                         <viewControllerLayoutGuide type="bottom" id="0Tx-GX-dUu"/>
@@ -53,7 +53,7 @@
         <!--Create New Meme-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Create New Meme" id="BYZ-38-t0r" customClass="MemeViewController" sceneMemberID="viewController">
+                <viewController title="Create New Meme" id="BYZ-38-t0r" customClass="UDCMemeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

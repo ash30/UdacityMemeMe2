@@ -6,11 +6,11 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "MemeView.h"
+#import "UDCMemeView.h"
 
 #pragma mark - PRIVATE
 
-@interface MemeView ()
+@interface UDCMemeView ()
 
 @property (nonatomic, nonnull) UIImageView * memeImageView;
 @property (nonatomic, nonnull) UITextField * header;
@@ -20,7 +20,7 @@
 
 #pragma mark - VIEW
 
-@implementation MemeView
+@implementation UDCMemeView
 
 #pragma mark - ACCESSORS
 

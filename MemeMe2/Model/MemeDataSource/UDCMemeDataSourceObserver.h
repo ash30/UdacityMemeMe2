@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MemeDataSource;
+@class UDCMemeDataSource;
 
 typedef NS_ENUM(NSUInteger, MemeDataSourceObserverChange) {
     MemeDataSourceObserverChangeMemeAdded,
@@ -15,8 +15,8 @@ typedef NS_ENUM(NSUInteger, MemeDataSourceObserverChange) {
     MemeDataSourceObserverChangeMemeChanged
 };
 
-@protocol MemeDataSourceObserver <NSObject>
+@protocol UDCMemeDataSourceObserver <NSObject>
 
-- (void)memeDataSourceDidChange:(MemeDataSource *)dataSource change:(MemeDataSourceObserverChange) change;
+- (void)memeDataSourceDidChange:(UDCMemeDataSource *)dataSource change:(MemeDataSourceObserverChange) change;
 
 @end

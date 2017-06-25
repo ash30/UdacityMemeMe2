@@ -6,14 +6,14 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "MemeCollectionViewController.h"
+#import "UDCMemeCollectionViewController.h"
 
-#import "MemeViewController.h"
-#import "MemeDataSource.h"
-#import "MemeDataSource+UICollectionViewDataSource.h"
-#import "MemeDataSourceObserver.h"
-#import "MutableMeme.h"
-#import "GeneralMemeCollectionViewCell.h"
+#import "UDCMemeViewController.h"
+#import "UDCMemeDataSource.h"
+#import "UDCMemeDataSource+UICollectionViewDataSource.h"
+#import "UDCMemeDataSourceObserver.h"
+#import "UDCMutableMeme.h"
+#import "UDCGeneralMemeCollectionViewCell.h"
 
 #pragma mark - CONSTANTS
 
@@ -22,14 +22,14 @@ static NSString * const kHeadingText = @"Memes";
 
 #pragma mark - PRIVATE
 
-@interface MemeCollectionViewController () <MemeDataSourceObserver>
+@interface UDCMemeCollectionViewController () <UDCMemeDataSourceObserver>
 
 @property (nonatomic) UICollectionView * memeCollection;
-@property (nonatomic) MemeDataSource * dataSource;
+@property (nonatomic) UDCMemeDataSource * dataSource;
 
 @end
 
-@implementation MemeCollectionViewController
+@implementation UDCMemeCollectionViewController
 
 
 #pragma mark - LIFE CYCLE
@@ -39,7 +39,7 @@ static NSString * const kHeadingText = @"Memes";
 
     
     // DATASOURCE
-    self.dataSource = [[MemeDataSource alloc] init];
+    self.dataSource = [[UDCMemeDataSource alloc] init];
     self.dataSource.observer = self;
     
     
@@ -76,7 +76,7 @@ static NSString * const kHeadingText = @"Memes";
     _memeCollection.translatesAutoresizingMaskIntoConstraints = false;
     //_memeCollection.backgroundColor = [UIColor whiteColor];
     _memeCollection.dataSource = _dataSource;
-    [_memeCollection registerClass:[GeneralMemeCollectionViewCell class] forCellWithReuseIdentifier:@"MEMECELL"];
+    [_memeCollection registerClass:[UDCGeneralMemeCollectionViewCell class] forCellWithReuseIdentifier:@"MEMECELL"];
 
     [container addArrangedSubview:_memeCollection];
 
@@ -95,8 +95,8 @@ static NSString * const kHeadingText = @"Memes";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     // FIXME: NOT SAFE!
-    MemeViewController * vc = [segue destinationViewController];
-    MutableMeme * newMeme = [[MutableMeme alloc] initWithImage:nil header:nil footer:nil];
+    UDCMemeViewController * vc = [segue destinationViewController];
+    UDCMutableMeme * newMeme = [[UDCMutableMeme alloc] initWithImage:nil header:nil footer:nil];
     [self.dataSource addNewMeme:newMeme];
     vc.currentMemeId = newMeme.memeId;
     vc.dataSource = _dataSource;
@@ -105,7 +105,7 @@ static NSString * const kHeadingText = @"Memes";
 
 #pragma mark - DATA SOURCE OBSERVER
 
-- (void)memeDataSourceDidChange:(MemeDataSource *)dataSource change:(MemeDataSourceObserverChange)change {
+- (void)memeDataSourceDidChange:(UDCMemeDataSource *)dataSource change:(MemeDataSourceObserverChange)change {
     [_memeCollection reloadData];
 }
 

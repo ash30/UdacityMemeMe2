@@ -6,9 +6,9 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "MutableMeme.h"
+#import "UDCMutableMeme.h"
 
-@implementation MutableMeme
+@implementation UDCMutableMeme
 
 @dynamic image;
 @dynamic header;

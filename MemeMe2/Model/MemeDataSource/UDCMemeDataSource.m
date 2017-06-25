@@ -6,18 +6,18 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "MemeDataSource.h"
-#import "MutableMeme.h"
+#import "UDCMemeDataSource.h"
+#import "UDCMutableMeme.h"
 
 
-@interface MemeDataSource ()
+@interface UDCMemeDataSource ()
 
-@property (nonatomic) NSMutableDictionary<NSUUID *, MutableMeme *> * idCache;
-@property (nonatomic) NSMutableArray<MutableMeme *> * elements;
+@property (nonatomic) NSMutableDictionary<NSUUID *, UDCMutableMeme *> * idCache;
+@property (nonatomic) NSMutableArray<UDCMutableMeme *> * elements;
 
 @end
 
-@implementation MemeDataSource
+@implementation UDCMemeDataSource
 
 - (NSUInteger)count {
     return [_elements count];
@@ -32,15 +32,15 @@
     return self;
 }
 
-- (void)addNewMeme: (MutableMeme *) meme {
+- (void)addNewMeme: (UDCMutableMeme *) meme {
     [_idCache setObject:meme forKey:meme.memeId];
     [_elements insertObject:meme atIndex:0];
     [self.observer memeDataSourceDidChange:self change:MemeDataSourceObserverChangeMemeAdded];
 }
 
-- (BOOL)editExistingMemeWithID: (NSUUID *) memeID usingBlock: (void (^)(MutableMeme *))edit {
+- (BOOL)editExistingMemeWithID: (NSUUID *) memeID usingBlock: (void (^)(UDCMutableMeme *))edit {
     
-    MutableMeme * meme = [_idCache objectForKey:memeID];
+    UDCMutableMeme * meme = [_idCache objectForKey:memeID];
     if (meme){
         edit(meme);
         [self.observer memeDataSourceDidChange:self change:MemeDataSourceObserverChangeMemeChanged];

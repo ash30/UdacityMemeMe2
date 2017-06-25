@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface Meme : NSObject
+@interface UDCMeme : NSObject
 
 @property (nonnull, nonatomic, readonly) NSUUID * memeId;
 @property (nullable, nonatomic, readonly) UIImage * image;

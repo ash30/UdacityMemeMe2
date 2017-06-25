@@ -6,9 +6,9 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "GeneralMemeCollectionViewCell.h"
+#import "UDCGeneralMemeCollectionViewCell.h"
 
-@implementation GeneralMemeCollectionViewCell
+@implementation UDCGeneralMemeCollectionViewCell
 
 - (instancetype)init {
     return [self initWithFrame:CGRectZero];

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MemeCollectionViewController : UIViewController
+@interface UDCMemeCollectionViewController : UIViewController
 
 @end

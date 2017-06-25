@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MemeViewController.h"
+#import "UDCMemeViewController.h"
 #import "UITextField+MemeStyle.h"
 
-@implementation MemeViewController (textFieldDelegate)
+@implementation UDCMemeViewController (textFieldDelegate)
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     

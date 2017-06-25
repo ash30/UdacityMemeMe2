@@ -6,16 +6,16 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "ImagePlaceHolder.h"
+#import "UDCImagePlaceHolder.h"
 
-@interface ImagePlaceHolder ()
+@interface UDCImagePlaceHolder ()
 
 @property (nonatomic) UIImageView * imageIcon;
 
 @end
 
 
-@implementation ImagePlaceHolder
+@implementation UDCImagePlaceHolder
 
 #pragma mark - INIT
 

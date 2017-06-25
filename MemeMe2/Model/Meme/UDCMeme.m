@@ -6,9 +6,9 @@
 //  Copyright © 2017 AshArthur. All rights reserved.
 //
 
-#import "Meme.h"
+#import "UDCMeme.h"
 
-@interface Meme ()
+@interface UDCMeme ()
 
 @property (nullable, nonatomic) UIImage * image;
 @property (nullable, nonatomic, copy) NSString * header;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation Meme
+@implementation UDCMeme
 
 - (nonnull instancetype)initWithImage:( UIImage * _Nullable )image header:(NSString * _Nullable)header footer:(NSString * _Nullable)footer
 {

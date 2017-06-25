@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GeneralMemeCollectionViewCell : UICollectionViewCell
+@interface UDCGeneralMemeCollectionViewCell : UICollectionViewCell
 
 @property (nonnull, nonatomic) UIImageView * imageView;
 

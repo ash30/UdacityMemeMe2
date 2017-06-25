@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MemeView : UIView
+@interface UDCMemeView : UIView
 
 @property (nullable, nonatomic) UIImage * memeImage;
 @property (nullable, nonatomic) id<UITextFieldDelegate> textDelegate;
