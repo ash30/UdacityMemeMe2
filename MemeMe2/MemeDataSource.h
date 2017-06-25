@@ -7,12 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MemeDataSourceObserver.h"
+
 @class Meme;
+@class MutableMeme;
 
 @interface MemeDataSource : NSObject
 
-@property (nonatomic, readonly) NSArray<Meme*> * memeData;
+@property (nonatomic, readonly) NSArray<Meme *> * elements;
+@property (nonatomic, readonly) NSUInteger count;
 
-- (void)addNewMeme: (Meme *) meme;
+
+@property (nonatomic) id<MemeDataSourceObserver> observer;
+
+- (void)addNewMeme: (MutableMeme *) meme;
+- (BOOL)editExistingMemeWithID: (NSUUID *) memeID usingBlock: (void (^)(MutableMeme *))edit;
+
+- (Meme *)memeAtIndex:(NSUInteger)index;
 
 @end

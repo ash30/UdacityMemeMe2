@@ -7,20 +7,28 @@
 //
 
 #import "MemeDataSource+UICollectionViewDataSource.h"
+#import "MemeDataSource.h"
+#import "GeneralMemeCollectionViewCell.h"
+#import "Meme.h"
+
+static NSString * const memeCellReuseIdent = @"MEMECELL";
 
 @implementation MemeDataSource (UICollectionViewDataSource)
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell * cell = [[UICollectionViewCell alloc] init];
-    UIImageView * imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:@"ic_add"];
-    [cell.contentView addSubview:imageView];
     
+    GeneralMemeCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:memeCellReuseIdent forIndexPath:indexPath];
+    
+    if (!(indexPath.item < self.count)){
+        return cell;
+    }
+    Meme * data = [self.elements objectAtIndex:indexPath.item];
+    cell.imageView.image = data.image;
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.memeData count];
+    return self.count;
 }
 
 @end
