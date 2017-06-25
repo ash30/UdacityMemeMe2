@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MemeViewController.h"
 #import "MemeView.h"
+#import "MemeDataSource.h"
+#import "MutableMeme.h"
 
 @implementation MemeViewController (UIImagePickerControllerDelegate)
 
@@ -16,12 +18,20 @@
     
     UIImage * image = info[UIImagePickerControllerOriginalImage];
     
-    if (image) {        
-        self.memeView.memeImage = image;
+    if (image && self.dataSource && self.currentMemeId) {
+        
+        // Update Model and View
+        [self.dataSource editExistingMemeWithID:self.currentMemeId usingBlock:^(MutableMeme * meme) {
+            meme.image = image;
+            self.memeView.memeImage = meme.image;
+
+        }];
+        
         self.memeView.hidden = false;
-        [self dismissViewControllerAnimated:true completion:nil];
         
     }
+    [self dismissViewControllerAnimated:true completion:nil];
+
     
 }
 

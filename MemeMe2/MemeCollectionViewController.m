@@ -7,9 +7,13 @@
 //
 
 #import "MemeCollectionViewController.h"
+
+#import "MemeViewController.h"
 #import "MemeDataSource.h"
 #import "MemeDataSource+UICollectionViewDataSource.h"
-#import "MemeViewController.h"
+#import "MemeDataSourceObserver.h"
+#import "MutableMeme.h"
+#import "GeneralMemeCollectionViewCell.h"
 
 #pragma mark - CONSTANTS
 
@@ -18,7 +22,7 @@ static NSString * const kHeadingText = @"Memes";
 
 #pragma mark - PRIVATE
 
-@interface MemeCollectionViewController ()
+@interface MemeCollectionViewController () <MemeDataSourceObserver>
 
 @property (nonatomic) UICollectionView * memeCollection;
 @property (nonatomic) MemeDataSource * dataSource;
@@ -36,6 +40,7 @@ static NSString * const kHeadingText = @"Memes";
     
     // DATASOURCE
     self.dataSource = [[MemeDataSource alloc] init];
+    self.dataSource.observer = self;
     
     
     // CONTAINER
@@ -69,8 +74,9 @@ static NSString * const kHeadingText = @"Memes";
     UICollectionViewLayout * layout = [[UICollectionViewFlowLayout alloc] init];
     self.memeCollection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout: layout ];
     _memeCollection.translatesAutoresizingMaskIntoConstraints = false;
-    _memeCollection.backgroundColor = [UIColor whiteColor];
+    //_memeCollection.backgroundColor = [UIColor whiteColor];
     _memeCollection.dataSource = _dataSource;
+    [_memeCollection registerClass:[GeneralMemeCollectionViewCell class] forCellWithReuseIdentifier:@"MEMECELL"];
 
     [container addArrangedSubview:_memeCollection];
 
@@ -84,14 +90,23 @@ static NSString * const kHeadingText = @"Memes";
 }
 
 
-#pragma mark - Navigation
+#pragma mark - NAVIGATION
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     // FIXME: NOT SAFE!
     MemeViewController * vc = [segue destinationViewController];
+    MutableMeme * newMeme = [[MutableMeme alloc] initWithImage:nil header:nil footer:nil];
+    [self.dataSource addNewMeme:newMeme];
+    vc.currentMemeId = newMeme.memeId;
     vc.dataSource = _dataSource;
     
+}
+
+#pragma mark - DATA SOURCE OBSERVER
+
+- (void)memeDataSourceDidChange:(MemeDataSource *)dataSource change:(MemeDataSourceObserverChange)change {
+    [_memeCollection reloadData];
 }
 
 @end

@@ -112,20 +112,6 @@ static const CGFloat kContentViewMargin = 16;
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    // Only save if user has started creating a meme
-    if ([_memeView memeImage]){
-       
-        NSString * header = @"";
-        NSString * footer = @"";
-        Meme * meme = [[Meme alloc] initWithImage:_memeView.memeImage header:header footer:footer];
-        
-        [_dataSource addNewMeme:meme];
-    }
-}
-
-
 #pragma mark - PICKER
 
 - (void) showImagePicker {

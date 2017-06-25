@@ -13,9 +13,15 @@
 
 @interface MemeViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate,  UIImagePickerControllerDelegate>
 
-@property (readonly) float memeAspectRatio;
-@property (nonatomic) MemeView * memeView;
+// Model
+@property (nonatomic) NSUUID * currentMemeId;
 @property (nonatomic) MemeDataSource * dataSource;
+
+// View Config
+@property (readonly) float memeAspectRatio;
+
+// Views
+@property (nonatomic) MemeView * memeView;
 
 - (void) showImagePicker;
 
