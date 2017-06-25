@@ -10,4 +10,7 @@
 
 @interface UDCMemeCollectionViewController : UIViewController
 
+@property (nonatomic) UICollectionView * memeCollection;
+@property (nonatomic) UICollectionViewFlowLayout * layout;
+
 @end

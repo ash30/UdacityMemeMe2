@@ -22,9 +22,7 @@ static NSString * const kHeadingText = @"Memes";
 
 #pragma mark - PRIVATE
 
-@interface UDCMemeCollectionViewController () <UDCMemeDataSourceObserver>
-
-@property (nonatomic) UICollectionView * memeCollection;
+@interface UDCMemeCollectionViewController () <UDCMemeDataSourceObserver, UICollectionViewDelegate>
 @property (nonatomic) UDCMemeDataSource * dataSource;
 
 @end
@@ -32,7 +30,7 @@ static NSString * const kHeadingText = @"Memes";
 @implementation UDCMemeCollectionViewController
 
 
-#pragma mark - LIFE CYCLE
+#pragma mark - VIEW SETUP
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,24 +69,31 @@ static NSString * const kHeadingText = @"Memes";
     
     
     // COLLECTION VIEW
-    UICollectionViewLayout * layout = [[UICollectionViewFlowLayout alloc] init];
-    self.memeCollection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout: layout ];
+    self.layout = [[UICollectionViewFlowLayout alloc] init];
+    self.memeCollection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout: _layout ];
     _memeCollection.translatesAutoresizingMaskIntoConstraints = false;
-    //_memeCollection.backgroundColor = [UIColor whiteColor];
+    _memeCollection.backgroundColor = [UIColor whiteColor];
+    _memeCollection.delegate = self;
     _memeCollection.dataSource = _dataSource;
     [_memeCollection registerClass:[UDCGeneralMemeCollectionViewCell class] forCellWithReuseIdentifier:@"MEMECELL"];
 
     [container addArrangedSubview:_memeCollection];
+    
+}
 
+#pragma mark - LIFE CYCLE
+
+- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
     
-    
+    [_layout invalidateLayout];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - NAVIGATION
 

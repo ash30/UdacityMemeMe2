@@ -15,6 +15,7 @@
 		082EB2211EFCFB8A00F6C101 /* UDCMemeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB2201EFCFB8A00F6C101 /* UDCMemeCollectionViewController.m */; };
 		082EB22E1EFEF47600F6C101 /* UDCMutableMeme.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB22D1EFEF47600F6C101 /* UDCMutableMeme.m */; };
 		082EB2341EFFB5F900F6C101 /* UDCGeneralMemeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB2331EFFB5F900F6C101 /* UDCGeneralMemeCollectionViewCell.m */; };
+		082EB23B1EFFFFDB00F6C101 /* UDCMemeCollectionViewController+UICollectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 082EB23A1EFFFFDB00F6C101 /* UDCMemeCollectionViewController+UICollectionViewDelegate.m */; };
 		089334D01EF6BC4F002CAD59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334CF1EF6BC4F002CAD59 /* main.m */; };
 		089334D31EF6BC4F002CAD59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334D21EF6BC4F002CAD59 /* AppDelegate.m */; };
 		089334D61EF6BC4F002CAD59 /* UDCMemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 089334D51EF6BC4F002CAD59 /* UDCMemeViewController.m */; };
@@ -44,6 +45,7 @@
 		082EB22D1EFEF47600F6C101 /* UDCMutableMeme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDCMutableMeme.m; sourceTree = "<group>"; };
 		082EB2321EFFB5F900F6C101 /* UDCGeneralMemeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDCGeneralMemeCollectionViewCell.h; sourceTree = "<group>"; };
 		082EB2331EFFB5F900F6C101 /* UDCGeneralMemeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDCGeneralMemeCollectionViewCell.m; sourceTree = "<group>"; };
+		082EB23A1EFFFFDB00F6C101 /* UDCMemeCollectionViewController+UICollectionViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UDCMemeCollectionViewController+UICollectionViewDelegate.m"; sourceTree = "<group>"; };
 		089334CB1EF6BC4F002CAD59 /* MemeMe2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		089334CF1EF6BC4F002CAD59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		089334D11EF6BC4F002CAD59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				082EB21F1EFCFB8A00F6C101 /* UDCMemeCollectionViewController.h */,
 				082EB2201EFCFB8A00F6C101 /* UDCMemeCollectionViewController.m */,
+				082EB23A1EFFFFDB00F6C101 /* UDCMemeCollectionViewController+UICollectionViewDelegate.m */,
 			);
 			name = MemeCollectionView;
 			path = ViewController/MemeCollectionViewController;
@@ -273,6 +276,7 @@
 				089334EC1EF720F3002CAD59 /* UDCMemeViewController+TextFieldDelegate.m in Sources */,
 				089334EE1EF86E1C002CAD59 /* UDCMemeViewController+UIImagePickerControllerDelegate.m in Sources */,
 				082EB21C1EFCF4A800F6C101 /* UDCMemeDataSource+UICollectionViewDataSource.m in Sources */,
+				082EB23B1EFFFFDB00F6C101 /* UDCMemeCollectionViewController+UICollectionViewDelegate.m in Sources */,
 				082EB2151EFCF36700F6C101 /* UDCMeme.m in Sources */,
 				089334E71EF71323002CAD59 /* UDCMemeView.m in Sources */,
 				082EB2191EFCF40900F6C101 /* UDCMemeDataSource.m in Sources */,
