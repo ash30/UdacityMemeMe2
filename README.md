@@ -6,3 +6,5 @@ Demo iOS app showcasing a "Master Detail Interface" for a collection of Meme ima
 so it can animated insertions on next appearance. 
 
 - ViewController is orientation aware, adjusting CollectionView layout during UIContentContainer life cycle methods.
+
+<img src="Images/MasterDetail.gif" width="200">
