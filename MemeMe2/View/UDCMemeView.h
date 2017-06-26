@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class UDCMeme;
+
 @interface UDCMemeView : UIView
 
 @property (nullable, nonatomic) UIImage * memeImage;
 @property (nullable, nonatomic) id<UITextViewDelegate> textDelegate;
+
+- (void) displayMeme: (nonnull UDCMeme * ) meme;
 
 
 @end

@@ -17,15 +17,15 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self){
-        self.imageView = [[UIImageView alloc] init];
-        [self.contentView addSubview:_imageView];
+        self.meme = [[UDCMemeView alloc] init];
+        [self.contentView addSubview:_meme];
         
-        _imageView.translatesAutoresizingMaskIntoConstraints = false;
+        _meme.translatesAutoresizingMaskIntoConstraints = false;
         [NSLayoutConstraint activateConstraints:@[
-                                                  [_imageView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor],
-                                                  [_imageView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor],
-                                                  [_imageView.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor],
-                                                  [_imageView.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor],
+                                                  [_meme.topAnchor constraintEqualToAnchor:self.contentView.topAnchor],
+                                                  [_meme.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor],
+                                                  [_meme.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor],
+                                                  [_meme.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor],
                                                   ]];
         
     }

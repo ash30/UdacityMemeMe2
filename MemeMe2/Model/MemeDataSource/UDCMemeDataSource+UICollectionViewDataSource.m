@@ -23,7 +23,8 @@ static NSString * const memeCellReuseIdent = @"MEMECELL";
         return cell;
     }
     UDCMeme * data = [self.elements objectAtIndex:indexPath.item];
-    cell.imageView.image = data.image;
+    [cell.meme displayMeme:data];
+    
     return cell;
 }
 

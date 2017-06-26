@@ -8,6 +8,8 @@
 
 #import "UDCMemeView.h"
 #import "UDCVerticalTextView.h"
+#import "UDCMeme.h"
+#import "NSAttributedString+MemeTextAttributes.h"
 
 #pragma mark - PRIVATE
 
@@ -58,15 +60,18 @@
         _header.backgroundColor = nil;
         _header.textAlignment = NSTextAlignmentCenter;
         _header.translatesAutoresizingMaskIntoConstraints = false;
+        _header.tag = 0;
         
         self.footer = [[UDCVerticalTextView alloc] init];
         _footer.backgroundColor = nil;
         _footer.textAlignment = NSTextAlignmentCenter;
         _footer.translatesAutoresizingMaskIntoConstraints = false;
+        _footer.tag = 1;
+
 
         self.memeImageView = [[UIImageView alloc] init];
         _memeImageView.translatesAutoresizingMaskIntoConstraints = false;
-        _memeImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _memeImageView.contentMode = UIViewContentModeScaleAspectFit;
         _memeImageView.clipsToBounds = true;
         
         NSArray<NSLayoutConstraint *> * constraints = @[
@@ -91,12 +96,30 @@
         [self addSubview:_memeImageView];
         [self addSubview:_header];
         [self addSubview:_footer];
-        [NSLayoutConstraint activateConstraints:constraints];
-        
+        [NSLayoutConstraint activateConstraints:constraints];        
     }
     return self;
 }
 
+
+#pragma mark - PUBLIC METHODS
+
+- (void) displayMeme: (nonnull UDCMeme * ) meme {
+    
+    if (meme.footer){
+        _footer.attributedText = [[NSAttributedString alloc] initWithString:meme.footer attributes:[NSAttributedString memeTextStyling]];
+    }
+    else {
+        _footer.text = @"";
+    }
+    if (meme.header){
+        _header.attributedText = [[NSAttributedString alloc] initWithString:meme.header attributes:[NSAttributedString memeTextStyling]];
+    }
+    else {
+        _header.text = @"";
+    }
+    _memeImageView.image = meme.image;
+}
 
 
 @end

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UDCMemeView.h"
 
 @interface UDCGeneralMemeCollectionViewCell : UICollectionViewCell
 
-@property (nonnull, nonatomic) UIImageView * imageView;
+@property (nonnull, nonatomic) UDCMemeView * meme;
 
 @end

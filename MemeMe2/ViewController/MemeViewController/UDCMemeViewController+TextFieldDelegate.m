@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "UDCMemeViewController.h"
 #import "UDCVerticalTextView.h"
+#import "UDCMemeDataSource.h"
+#import "UDCMutableMeme.h"
+#import "NSAttributedString+MemeTextAttributes.h"
 
 
 @implementation UDCMemeViewController (textFieldDelegate)
@@ -16,19 +19,25 @@
 - (void)textViewDidChange:(UITextView *)textView {
     // Small hack, call the setter so custom subclass with override can vertically align
     textView.text = textView.text;
+    
+    [self.dataSource editExistingMemeWithID:self.currentMemeId usingBlock:^(UDCMutableMeme * meme) {
+       
+        // Update model data
+        // FIXME: Formalise tags into names
+        if (textView.tag == 0){
+            meme.header = textView.text;
+        }
+        else{
+            meme.footer = textView.text;
+        }
+        
+    }];
+    
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     
-    NSDictionary * const style = @{
-                                   NSStrokeColorAttributeName: [UIColor blackColor],
-                                   NSForegroundColorAttributeName: [UIColor whiteColor],
-                                   NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:40.0],
-                                   NSStrokeWidthAttributeName: [NSNumber numberWithFloat:-2.0]
-                                   };
-    textView.typingAttributes = style;
-    textView.textAlignment = NSTextAlignmentCenter;
-
+    textView.typingAttributes = [NSAttributedString memeTextStyling ];
     return true;
 }
 
