@@ -18,15 +18,22 @@
     
     UIImage * image = info[UIImagePickerControllerOriginalImage];
     
-    if (image && self.dataSource && self.currentMemeId) {
+    
+
+    
+    if (image && self.dataSource) {
         
-        // Update Model and View
+        if (!self.currentMemeId){
+            // First time choosing image, create backing meme model
+            UDCMutableMeme * newMeme = [[UDCMutableMeme alloc] initWithImage:nil header:nil footer:nil];
+            [self.dataSource addNewMeme:newMeme];
+            self.currentMemeId = newMeme.memeId;
+        }
+
         [self.dataSource editExistingMemeWithID:self.currentMemeId usingBlock:^(UDCMutableMeme * meme) {
             meme.image = image;
             self.memeView.memeImage = meme.image;
-
         }];
-        
         self.memeView.hidden = false;
         
     }

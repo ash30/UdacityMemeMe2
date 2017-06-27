@@ -120,9 +120,6 @@ static NSString * const kHeadingText = @"Memes";
 
     // FIXME: NOT SAFE!
     UDCMemeViewController * vc = [segue destinationViewController];
-    UDCMutableMeme * newMeme = [[UDCMutableMeme alloc] initWithImage:nil header:nil footer:nil];
-    [self.dataSource addNewMeme:newMeme];
-    vc.currentMemeId = newMeme.memeId;
     vc.dataSource = _dataSource;
     
 }

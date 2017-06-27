@@ -32,7 +32,6 @@
         }
         
     }];
-    
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
