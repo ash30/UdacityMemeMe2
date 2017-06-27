@@ -12,7 +12,8 @@
 #import "UDCMemeDataSource.h"
 #import "UDCMutableMeme.h"
 #import "NSAttributedString+MemeTextAttributes.h"
-
+#import <objc/runtime.h>
+#import <MemeMe2-Swift.h>
 
 @implementation UDCMemeViewController (textFieldDelegate)
 
@@ -35,9 +36,19 @@
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    
     textView.typingAttributes = [NSAttributedString memeTextStyling ];
     return true;
+    
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    KeyboardManager * delgate = objc_getAssociatedObject(self, UDCAssociatedKeyboardManagerKey);
+    delgate.activeInputView = textView;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView {
+    KeyboardManager * delgate = objc_getAssociatedObject(self, UDCAssociatedKeyboardManagerKey);
+    delgate.activeInputView = nil;
 }
 
 @end

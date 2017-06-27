@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+static void * UDCAssociatedKeyboardManagerKey = @"UDCKeyboardManagerKey";
+
+
 @class UDCMemeView;
 @class UDCMemeDataSource;
 

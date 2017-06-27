@@ -11,6 +11,7 @@
 #import "UDCMemeView.h"
 #import "UDCImagePlaceHolder.h"
 
+#import <MemeMe2-Swift.h>
 
 #pragma mark - CONSTANTS
 
@@ -21,13 +22,16 @@ static const CGFloat kContentViewMargin = 16;
 
 @interface UDCMemeViewController ()
 
+// CONFIG
 @property (readwrite) float memeAspectRatio;
+
+// SUBVIEWS
 @property (nonatomic) UIView * contentView;
 @property (nonatomic) UIView * placeholderView;
+
+// GESTURES
 @property (nonatomic) UITapGestureRecognizer * createGesture;
 @property (nonatomic) UITapGestureRecognizer * altCreateGesture;
-
-
 
 @end
 
@@ -42,6 +46,13 @@ static const CGFloat kContentViewMargin = 16;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // KEYBOARD DELEGATE
+    KeyboardManager * keyboardDelegate = [[KeyboardManager alloc] init];
+    keyboardDelegate.subscribeToKeyboardNotifications;
+    keyboardDelegate.controller = self;
+    objc_setAssociatedObject(self, UDCAssociatedKeyboardManagerKey, keyboardDelegate, OBJC_ASSOCIATION_RETAIN);
+        
+    // CONFIG
     _memeAspectRatio = 0.9;
 
     // CONTENT VIEW
